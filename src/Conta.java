@@ -17,6 +17,7 @@ public abstract class Conta implements iConta {
 		this.cliente = cliente;
 	}
 
+
 	public int getAgencia() {
 		return agencia;
 	}
@@ -44,11 +45,17 @@ public abstract class Conta implements iConta {
 		this.sacar(valor);
 		contaDestino.depositar(valor);
 	}
+
 	
 	protected void imprimirInfoComuns() {
 		System.out.println(String.format("Titular: %s", this.cliente.getNome()));
-		System.out.println(String.format("Agência: %d", this.agencia));
-		System.out.println(String.format("Número: %d", this.numero));
+		System.out.println(String.format("Cpf: %s", this.cliente.getCpf()));
+		System.out.println(String.format("Agencia: %d", this.agencia));
+		System.out.println(String.format("Numero: %d", this.numero));
 		System.out.println(String.format("Saldo: %.2f", this.saldo));
+	}
+	
+	public void imprimirContas(Banco contas) {
+		System.out.println(contas);
 	}
 }
